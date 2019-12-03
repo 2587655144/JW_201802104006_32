@@ -1,0 +1,79 @@
+HTTPS:https://github.com/2587655144/learngit.git
+SSH:git@github.com:2587655144/learngit.git
+
+create table degree
+(
+    id  bigint auto_increment primary key,
+    description varchar(255) not null,
+    no   varchar(255) not null,
+    remarks  varchar(255) null
+);
+
+insert into degree(description,no,remarks) values('博士','01','');
+insert into degree(description,no,remarks) values('硕士','02','');
+insert into degree(description,no,remarks) values('学士','03','');
+
+create table school
+(
+    id  bigint auto_increment primary key,
+    description varchar(255) not null,
+    no  varchar(255) not null,
+    remarks  varchar(255) null,
+    unique (no)
+);
+
+insert into school(description,no,remarks) values('管理学院','01','');
+insert into school(description,no,remarks) values('土木学院','02','');
+
+create table department
+(
+    id  bigint auto_increment primary key,
+    description varchar(255) not null,
+    no  varchar(255) not null,
+    remarks  varchar(255) null,
+    school_id   bigint  not null,
+    foreign key (school_id) references school (id)
+);
+
+insert into department(description,no,remarks,school_id) values('信息管理','01','',1);
+insert into department(description,no,remarks,school_id) values('工程造价','02','',1);
+
+create table profTitle
+(
+    id   bigint auto_increment primary key,
+    description varchar(255) not null,
+    no  varchar(255) not null,
+    remarks  varchar(255) null
+);
+
+insert into profTitle(description,no,remarks) values('教授','01','');
+insert into profTitle(description,no,remarks) values('副教授','02','');
+
+create table teacher
+(
+    id  bigint auto_increment primary key,
+    no varchar(255) not null,
+    name  varchar(255) not null,
+    profTitle_id  bigint  not null,
+    degree_id bigint   not null,
+    department_id   bigint  not null,
+    foreign key (degree_id) references degree (id),
+    foreign key (department_id) references department (id),
+    foreign key (profTitle_id) references profTitle (id)
+);
+
+ insert into teacher(no,name,profTitle_id,degree_id,department_id) values('01','刘霞','1','1','1');
+ insert into teacher(no,name,profTitle_id,degree_id,department_id) values('02','张良','1','1','1');
+
+create table user(
+     id bigint auto_increment,
+     username varchar(255),
+     password varchar(255),
+     loginTime date,
+     teacher_id bigint,
+     primary key(id,teacher_id,username),
+     foreign key(teacher_id) references teacher(id)
+     on delete cascade
+);
+
+insert into user(username,password,loginTime,teacher_id) values ("aaa","123456","2019/12/1",1);
