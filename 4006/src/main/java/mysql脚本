@@ -1,6 +1,7 @@
 HTTPS:https://github.com/2587655144/learngit.git
 SSH:git@github.com:2587655144/learngit.git
 
+
 create table degree
 (
     id  bigint auto_increment primary key,
