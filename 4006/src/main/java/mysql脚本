@@ -1,6 +1,4 @@
-HTTPS:https://github.com/2587655144/learngit.git
-SSH:git@github.com:2587655144/learngit.git
-
+https://github.com/2587655144/cat.git
 
 create table degree
 (
