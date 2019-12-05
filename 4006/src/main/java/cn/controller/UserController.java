@@ -20,9 +20,9 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置响应字符编码为UTF-8
-        response.setContentType("text/html;charset=UTF-8");
+        //response.setContentType("text/html;charset=UTF-8");
         //设置请求字符编码为UTF-8
-        request.setCharacterEncoding("UTF-8");
+        //request.setCharacterEncoding("UTF-8");
         //根据request对象，获得代表参数的JSON字串
         String degree_json = JSONUtil.getJSON(request);
         //将JSON字串解析为Degree对象
@@ -47,7 +47,7 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       request.setCharacterEncoding("UTF-8");
+        //request.setCharacterEncoding("UTF-8");
         String user_json = JSONUtil.getJSON(request);
         User userToAdd = JSON.parseObject(user_json, User.class);
         //创建JSON对象message，以便往前端响应信息
@@ -62,8 +62,8 @@ public class UserController extends HttpServlet {
             e.printStackTrace();
             message.put("message", "网络异常");
         }
-        response.setContentType("html/text;charset=UTF8");
-        response.getWriter().println(message);
+        //response.setContentType("html/text;charset=UTF8");
+        //response.getWriter().println(message);
         //login
         /*response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
@@ -115,7 +115,7 @@ public class UserController extends HttpServlet {
         }
 
         //响应
-        response.setContentType("html/text;charset=UTF8");
+        //response.setContentType("html/text;charset=UTF8");
         //响应message到前端
         response.getWriter().println(message);
     }
@@ -123,7 +123,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置响应字符编码为UTF-8
-        response.setContentType("text/html;charset=UTF-8");
+        //response.setContentType("text/html;charset=UTF-8");
         //读取参数id
         String id_str = request.getParameter("id");
         //创建JSON对象message，以便往前端响应信息
