@@ -38,7 +38,6 @@ public class LoginController extends HttpServlet {
                 return;
             }else {
                 message.put("message","用户名或密码错误");
-                resp.getWriter().println(message);
             }
         } catch (SQLException e) {
             message.put("message","数据库操作异常");
