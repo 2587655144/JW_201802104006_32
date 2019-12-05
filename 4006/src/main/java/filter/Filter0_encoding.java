@@ -14,7 +14,7 @@ public class Filter0_encoding implements Filter {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         String path = request.getRequestURI();
-        if (path.contains("/login")){
+        if (path.contains("/login1")){
             System.out.println("url中含有\"/login\"，不设置字符编码");
         }else {
             String method = request.getMethod();
